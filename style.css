@@ -1,0 +1,984 @@
+/* ==========================================================================
+   GLOBAL STYLES
+   ========================================================================== */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa; /* Light grey background for entire site */
+    color: #343a40; /* Darker grey for general text */
+    padding-top: 56px; /* Space for fixed navbar */
+}
+
+a {
+    color: #007bff; /* Primary link color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3; /* Darker primary on hover */
+}
+
+/* Headings for sections */
+.section-heading {
+    color: #007bff;
+    font-weight: 600;
+    margin-bottom: 3rem !important;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+/* Horizontal rule for separation */
+hr.my-5 {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Common button styles if needed, though MDBootstrap handles most */
+.btn {
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   NAVBAR STYLES
+   ========================================================================== */
+
+.navbar {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
+    margin-right: 15px;
+    position: relative;
+}
+
+.navbar-nav .nav-link.active::after {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 3px;
+    background-color: #007bff; /* Active indicator color */
+    position: absolute;
+    bottom: -5px;
+    left: 20%;
+    border-radius: 2px;
+}
+
+/* ==========================================================================
+   FOOTER STYLES
+   ========================================================================== */
+
+footer {
+    background-color: #343a40;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #007bff;
+}
+
+footer .fab {
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+}
+
+
+/* ==========================================================================
+   HOME PAGE (index.html) SECTIONS
+   ========================================================================== */
+
+/* --- SECTION: Home Page - Hero --- */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://mdbootstrap.com/img/new/slides/004.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+    height: 100vh; /* Full viewport height */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    z-index: 1; /* Ensure content is above any background layers */
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+    z-index: -1; /* Behind content */
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+/* --- SECTION: Home Page - How It Works --- */
+.how-it-works-section {
+    padding: 4rem 0;
+    background-color: #fefefe;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.step-card {
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15) !important;
+}
+
+.step-card .card-body {
+    padding: 2rem;
+}
+
+.step-card i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* --- SECTION: Home Page - Featured Vehicles --- */
+.featured-vehicles-section {
+    padding: 4rem 0;
+    background-color: #f8f9fa;
+}
+
+.vehicle-card {
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vehicle-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+}
+
+.vehicle-card img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.vehicle-card .card-body {
+    padding: 1.5rem;
+}
+
+.vehicle-card .card-title {
+    font-weight: 600;
+    color: #333;
+}
+
+.vehicle-card .card-text {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.vehicle-card .price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #28a745; /* Success color for price */
+}
+
+/* --- SECTION: Home Page - Why Choose Us --- */
+.why-choose-us-section {
+    padding: 4rem 0;
+    background-color: #e9ecef; /* Lighter grey background */
+}
+
+.reason-item {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reason-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
+}
+
+.reason-item i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #007bff;
+}
+
+.reason-item h5 {
+    font-weight: 600;
+}
+
+/* --- SECTION: Home Page - Testimonials --- */
+.testimonials-section {
+    padding: 4rem 0;
+    background-color: #fefefe;
+}
+
+.testimonial-card {
+    background-color: #fff;
+    border-radius: 0.75rem;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    text-align: center;
+    margin: 0 10px; /* Space between cards in carousel */
+}
+
+.testimonial-card img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #007bff;
+    margin-bottom: 1rem;
+}
+
+.testimonial-card .lead {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.testimonial-card .customer-name {
+    font-weight: 600;
+    color: #333;
+}
+
+.testimonial-card .customer-location {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* --- SECTION: Home Page - Call to Action (Final) --- */
+.home-cta-section {
+    padding: 4rem 0;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://mdbootstrap.com/img/new/slides/080.jpg') no-repeat center center/cover;
+    color: white;
+    border-radius: 0.75rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+.home-cta-section h2 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.home-cta-section p {
+    font-size: 1.25rem;
+}
+
+/* ==========================================================================
+   ABOUT US PAGE (about.html) SECTIONS
+   ========================================================================== */
+
+/* --- SECTION: About Us - Hero --- */
+.about-hero {
+    background: url('img/about\ hero.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+    color: white;
+    text-align: center;
+    padding: 6rem 0;
+    margin-top: 56px;
+    position: relative;
+    z-index: 1;
+}
+
+.about-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.about-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.about-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    font-weight: 700;
+}
+
+.about-hero p {
+    font-size: 1.25rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+/* --- SECTION: About Us - General Section Styling (container for other sections) --- */
+.about-main .about-section {
+    padding: 2rem;
+    margin-bottom: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* --- SECTION: About Us - Our Story --- */
+.story-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.story-image {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.story-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.story-content {
+    flex: 2;
+    min-width: 300px;
+    color: #495057;
+}
+
+.story-content p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+/* --- SECTION: About Us - Mission & Vision --- */
+.mission-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.mission-item {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mission-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.mission-item i {
+    color: #007bff;
+} /* Apply primary color for icons, override specific ones in HTML if needed */
+
+.mission-item h3 {
+    color: #28a745; /* Specific color for mission/vision headings */
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+/* --- SECTION: About Us - Core Values --- */
+.values-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.value-item {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.value-item i {
+    color: #007bff; /* Primary color for icons */
+}
+
+.value-item h3 {
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+/* --- SECTION: About Us - What Makes Us Different --- */
+.different-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.different-item {
+    flex: 1;
+    min-width: 280px;
+    padding: 1.5rem;
+    background-color: #f0f8ff; /* Light blue background */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.different-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.different-item h5 {
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.different-item i {
+    color: #007bff; /* Default icon color */
+}
+
+/* --- SECTION: About Us - Meet Our Team --- */
+.team-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.team-member {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 4px solid #007bff;
+}
+
+.team-member h3 {
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.team-member p {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.team-social a {
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+.team-social a:hover {
+    color: #0056b3;
+}
+
+/* --- SECTION: About Us - Call to Action (Final) --- */
+/* Reusing general CTA styling or specific styling if needed */
+/* The final CTA section is styled with .text-center, .py-5, .bg-primary, .text-white, .rounded, .shadow-lg, .mt-5 classes */
+
+
+/* ==========================================================================
+   VEHICLES PAGE (vehicles.html) SECTIONS
+   ========================================================================== */
+
+/* --- SECTION: Vehicles - Hero --- */
+.vehicles-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/vehicle.jpg') no-repeat center center/cover;
+    background-position: center center;
+    background-size: cover;
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+    margin-top: 56px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.vehicles-hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+.vehicles-hero p {
+    font-size: 1.25rem;
+}
+
+/* --- SECTION: Vehicles - Filters & Search --- */
+.filter-section {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    margin-bottom: 2rem;
+}
+
+.filter-section .form-outline {
+    margin-bottom: 1rem;
+}
+
+/* --- SECTION: Vehicles - Vehicle Listing --- */
+.vehicle-listing-section {
+    padding: 2rem 0;
+}
+
+.vehicle-listing-card {
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Ensures all cards in a row have same height */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.vehicle-listing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2) !important;
+}
+
+.vehicle-listing-card img {
+    height: 220px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.vehicle-listing-card .card-body {
+    padding: 1.5rem;
+}
+
+.vehicle-listing-card .card-title {
+    font-weight: 600;
+    color: #333;
+    font-size: 1.4rem;
+}
+
+.vehicle-listing-card .features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.75rem 0;
+    font-size: 0.95rem;
+    color: #555;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem; /* Row gap, column gap */
+}
+
+.vehicle-listing-card .features-list li {
+    display: flex;
+    align-items: center;
+}
+
+.vehicle-listing-card .features-list i {
+    margin-right: 0.5rem;
+    color: #007bff; /* Icon color */
+    font-size: 1.1rem;
+}
+
+.vehicle-listing-card .price-display {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #28a745;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.vehicle-listing-card .btn-primary {
+    width: 100%;
+}
+
+/* Pagination Styling */
+.pagination .page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+.pagination .page-link {
+    color: #007bff;
+    border-radius: 0.25rem !important;
+    margin: 0 0.25rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.pagination .page-link:hover {
+    background-color: #e9ecef;
+}
+
+
+/* ==========================================================================
+   SERVICES PAGE (services.html) SECTIONS
+   ========================================================================== */
+
+/* --- SECTION: Services - Hero --- */
+.services-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://mdbootstrap.com/img/new/slides/049.jpg') no-repeat center center/cover;
+    background-position: center center;
+    background-size: cover;
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+    margin-top: 56px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.services-hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+.services-hero p {
+    font-size: 1.25rem;
+}
+
+/* --- SECTION: Services - Flexible Rental Options (Core Services) --- */
+.service-card {
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    text-align: center;
+    background-color: #fff;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important;
+}
+
+.service-card i {
+    margin-bottom: 1rem;
+    color: #007bff;
+}
+
+.service-card .list-unstyled li i {
+    color: #28a745;
+    font-size: 1rem;
+}
+
+/* --- SECTION: Services - Our Commitment to Service Quality --- */
+/* This section uses general MDBootstrap classes and custom styling for icons/text within the bg-primary div */
+/* No specific new class needed beyond the section level styles */
+
+/* --- SECTION: Services - Value-Added Services --- */
+.service-addon-card {
+    border: 1px solid #e9ecef;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    text-align: center;
+    background-color: #fefefe;
+}
+
+.service-addon-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1) !important;
+}
+
+.service-addon-card i {
+    color: #6c757d;
+    margin-bottom: 0.75rem;
+}
+
+.service-addon-card .card-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* --- SECTION: Services - Rental Requirements & Information --- */
+.feature-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1) !important;
+}
+
+/* --- SECTION: Services - Corporate & Custom Solutions --- */
+/* This section reuses general card styling */
+
+/* --- SECTION: Services - Service-Specific FAQs --- */
+.accordion-item {
+    border: 1px solid #dee2e6;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #007bff;
+    background-color: #e9f5ff;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.accordion-button {
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 1.25rem 1.5rem;
+    background-color: #fff;
+    color: #495057;
+    transition: background-color 0.2s ease;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+.accordion-body {
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* --- SECTION: Services - How It Works (Callout) --- */
+/* This section reuses general MDBootstrap classes */
+
+
+/* ==========================================================================
+   CONTACT PAGE (contact.html) SECTIONS
+   ========================================================================== */
+
+/* --- SECTION: Contact - Hero --- */
+.contact-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/contact.jpg') no-repeat center center/cover;
+    background-position: center center;
+    background-size: cover;
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+    margin-top: 56px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.contact-hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+.contact-hero p {
+    font-size: 1.25rem;
+}
+
+/* --- SECTION: Contact - Why Contact Us --- */
+/* Reuses general icon/text styling within a card-like structure */
+
+/* --- SECTION: Contact - Our Contact Details --- */
+/* Reuses general icon/text styling within a card-like structure */
+
+/* --- SECTION: Contact - Send Us a Message (Contact Form) --- */
+/* Form styling handled primarily by MDBootstrap .form-outline, .form-control */
+
+/* --- SECTION: Contact - Find Us on the Map --- */
+.map-container {
+    overflow:hidden;
+    padding-bottom:56.25%; /* 16:9 Aspect Ratio */
+    position:relative;
+    height:0;
+}
+.map-container iframe {
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+    border-radius: 8px;
+}
+
+/* --- SECTION: Contact - Operating Hours --- */
+.list-group-item {
+    background-color: #fefefe;
+    border-color: #eee;
+    font-size: 1.1rem;
+}
+
+.list-group-item span:first-child {
+    color: #555;
+}
+
+.list-group-item .fw-bold {
+    color: #333;
+}
+
+/* --- SECTION: Contact - Other Branch Locations --- */
+.location-card {
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    text-align: left;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+}
+
+.location-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1) !important;
+}
+
+.location-card .card-title {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.location-card .list-unstyled li {
+    margin-bottom: 0.5rem;
+}
+
+.location-card .list-unstyled i {
+    width: 20px;
+    text-align: center;
+    color: #007bff;
+}
+
+/* --- SECTION: Contact - Connect With Us Online (Social Media) --- */
+.social-icons .btn {
+    min-width: 150px;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+}
+
+/* --- SECTION: Contact - Final Call to Action --- */
+/* Reuses general CTA styling */
+
+
+/* ==========================================================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================================================== */
+
+@media (max-width: 992px) { /* Medium to small devices */
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+    .section-heading {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) { /* Small devices (tablets, large phones) */
+    body {
+        padding-top: 56px; /* Ensure space for navbar */
+    }
+    .hero-section, .about-hero, .vehicles-hero, .services-hero, .contact-hero {
+        padding-top: 6rem;
+        padding-bottom: 3rem;
+    }
+    .hero-content h1, .about-hero h1, .vehicles-hero h1, .services-hero h1, .contact-hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content p, .about-hero p, .vehicles-hero p, .services-hero p, .contact-hero p {
+        font-size: 1rem;
+    }
+    .section-heading {
+        font-size: 2rem;
+    }
+
+    /* Flex items stack vertically on smaller screens */
+    .flex-container, .story-flex, .mission-flex, .values-flex, .different-flex, .team-flex {
+        flex-direction: column;
+        gap: 15px; /* Slightly reduce gap on smaller screens */
+    }
+
+    .story-image, .story-content, .mission-item, .value-item, .different-item, .team-member,
+    .service-card, .service-addon-card, .feature-item, .location-card {
+        min-width: unset;
+        width: 100%;
+        padding: 1rem; /* Slightly less padding */
+    }
+
+    .social-icons .btn {
+        width: 100%;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+}
+
+@media (max-width: 576px) { /* Extra small devices (phones) */
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+    .section-heading {
+        font-size: 1.8rem;
+    }
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+}
